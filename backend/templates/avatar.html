@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&family=Space+Grotesk%3Awght%40400%3B500%3B700" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<meta charset="utf-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style type="text/tailwindcss">
+   :root {
+--primary-color: #38e07b;
+}
+.avatar-selected {
+ outline: 4px solid var(--primary-color);
+ outline-offset: 4px;
+}
+ </style>
+</head>
+<body class="bg-[#f8fbfa] font-['Space_Grotesk',_'Noto_Sans',_sans-serif] text-[#0e1a13]">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<header class="sticky top-0 z-20 flex w-full items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e8f2ec] bg-[#f8fbfa]/80 px-10 py-3 backdrop-blur-sm">
+<div class="flex items-center gap-4 text-[#0e1a13]">
+<svg class="h-8 w-8 text-[#38e07b]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"></path>
+<path d="M12 22c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"></path>
+<path d="M15 12c0 2.2-2.24 4-5 4s-5-1.8-5-4 2.24-4 5-4 5 1.8 5 4z" transform="rotate(-30 12 12)"></path>
+</svg>
+<h1 class="text-2xl font-bold tracking-[-0.015em]">EcoLearn</h1>
+</div>
+<nav class="hidden items-center gap-6 md:flex">
+<a class="text-base font-medium transition-colors hover:text-[#38e07b]" href="#">Dashboard</a>
+<a class="text-base font-medium transition-colors hover:text-[#38e07b]" href="#">Challenges</a>
+<a class="text-base font-medium transition-colors hover:text-[#38e07b]" href="#">Community</a>
+<a class="text-base font-medium transition-colors hover:text-[#38e07b]" href="#">Resources</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-white text-[#0e1a13] shadow-sm transition-colors hover:bg-[#e8f2ec]">
+<span class="material-symbols-outlined"> notifications </span>
+</button>
+<div class="aspect-square size-10 overflow-hidden rounded-full">
+<img alt="User profile picture" class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDHrvwZFQSWwUwDFM9X9sPSJMeap8avhA2LL--klY-DvTuxJQdLlrDvW3KtExPhtnpJrk4N-d-EjW6bdkL8O7WS6nnlW7f9HhGba3RVugW3SYOnGzQoHaESzkzc21DEsfRCMGIccNnSJ2npzPsfCi5SDfy_qKzGn9GabIE2NzbZ4Hr-DWSdkky-vgNaZwW_MYqWWB5r82vjkFLPB-FpHJfg3jKxbZt22HpYgQGEdjrrFQlQIGhPV_vt9dIdPYwiZnB_0EzBcyNiA"/>
+</div>
+</div>
+</header>
+<main class="flex flex-1 items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
+<div class="w-full max-w-4xl text-center">
+<h2 class="text-4xl font-bold tracking-tighter sm:text-5xl">Choose Your Eco-Avatar</h2>
+<p class="mx-auto mt-4 max-w-2xl text-lg text-gray-600">Select an avatar that represents your eco-warrior spirit. This will be your identity in the EcoLearn community.</p>
+<div class="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+<div class="group cursor-pointer">
+<div class="aspect-square overflow-hidden rounded-full bg-gray-200 transition-all group-hover:scale-105 group-hover:shadow-lg">
+<img alt="Avatar 1" class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBh0XphBBWKpDr0EeiAUsjgtsRQ7wDml74-sZpRlIdsF5HD-3UK2dpyVE-f3iwk0IOipcrSYfWkp3VxvnN6qMuNhsgFs9qUdUgxwulVUuGd-9VzljGXZdY1nZAYc6Q1fhlEv15aXxwkePXhXVMn5QArxV3BQ40ZasTIo4MQTZqEtOtIVmF0DMrnRRkzSsNxsCxpkjHZjiwImKwpntqJAyiR70qROHc6GKtU84-tLDCR7K6h66X2DAZQ_J4OWqnoMhsu2ggornhB1-A" data-avatar-url="https://lh3.googleusercontent.com/aida-public/AB6AXuBh0XphBBWKpDr0EeiAUsjgtsRQ7wDml74-sZpRlIdsF5HD-3UK2dpyVE-f3iwk0IOipcrSYfWkp3VxvnN6qMuNhsgFs9qUdUgxwulVUuGd-9VzljGXZdY1nZAYc6Q1fhlEv15aXxwkePXhXVMn5QArxV3BQ40ZasTIo4MQTZqEtOtIVmF0DMrnRRkzSsNxsCxpkjHZjiwImKwpntqJAyiR70qROHc6GKtU84-tLDCR7K6h66X2DAZQ_J4OWqnoMhsu2ggornhB1-A"/>
+</div>
+</div>
+<div class="group cursor-pointer">
+<div class="avatar-selected aspect-square overflow-hidden rounded-full bg-gray-200 transition-all group-hover:scale-105 group-hover:shadow-lg">
+<img alt="Avatar 2" class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdis1PzTMRXzLnfEo80zIejx67y9YmubuZ2RaDULjGwc02tNhAdeoFQzd1kDPR4-SNNY1pZH3iAiXnQliaYZK_RSnGO7Im3FzCOeIYQA3dVCPFlfgQVi_q6DydbosiRtZVzYACLmNwULvISB4gklGNuyZqHQn0Ml5MRpcJOYLcPybGZyn9fM0kXxhEwbDdmeZwFq5ifSZtC-vOq7LMyz1cl1JUr0M8pO5rkqKFXr_SwX4fLfaEUZJhIGXU0r56A_rLe7WlftMSd5Q" data-avatar-url="https://lh3.googleusercontent.com/aida-public/AB6AXuCdis1PzTMRXzLnfEo80zIejx67y9YmubuZ2RaDULjGwc02tNhAdeoFQzd1kDPR4-SNNY1pZH3iAiXnQliaYZK_RSnGO7Im3FzCOeIYQA3dVCPFlfgQVi_q6DydbosiRtZVzYACLmNwULvISB4gklGNuyZqHQn0Ml5MRpcJOYLcPybGZyn9fM0kXxhEwbDdmeZwFq5ifSZtC-vOq7LMyz1cl1JUr0M8pO5rkqKFXr_SwX4fLfaEUZJhIGXU0r56A_rLe7WlftMSd5Q"/>
+</div>
+</div>
+<div class="group cursor-pointer">
+<div class="aspect-square overflow-hidden rounded-full bg-gray-200 transition-all group-hover:scale-105 group-hover:shadow-lg">
+<img alt="Avatar 3" class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGqKjaz_LDVW-3EU6NL0AlzY9DeZRxyPAhFTp885SsuUBThLpaJHeDpz0tuj9PKdFIhDdNSfYC3zGYCOLD3yHebU_fxnLab_V-H7ip0RXFiel7O9DvfLkwwXsuaDQR-dr3wPGAX8keqOhRMQhZkntFlyZP1ZuxFk3g2MMNtRZiwuAA0unUVT0JBZysUUUYqmsVSe343iyIPODsc6vVNSzjP5gpLM7P9plztCsTrJB4q7SnbV47MmWENSrvo4fcKeuyYATyoH0qs9A" data-avatar-url="https://lh3.googleusercontent.com/aida-public/AB6AXuCGqKjaz_LDVW-3EU6NL0AlzY9DeZRxyPAhFTp885SsuUBThLpaJHeDpz0tuj9PKdFIhDdNSfYC3zGYCOLD3yHebU_fxnLab_V-H7ip0RXFiel7O9DvfLkwwXsuaDQR-dr3wPGAX8keqOhRMQhZkntFlyZP1ZuxFk3g2MMNtRZiwuAA0unUVT0JBZysUUUYqmsVSe343iyIPODsc6vVNSzjP5gpLM7P9plztCsTrJB4q7SnbV47MmWENSrvo4fcKeuyYATyoH0qs9A"/>
+</div>
+</div>
+<div class="group cursor-pointer">
+<div class="aspect-square overflow-hidden rounded-full bg-gray-200 transition-all group-hover:scale-105 group-hover:shadow-lg">
+<img alt="Avatar 4" class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCN-P4sGaOSp7JA6UPDrQ1PIWkQ-RZBRVYnPKkXs0F6HYP3PxsFwexyc2UAa4pUee0BeIKrHvewUMDp1xvaLckGOIG63MBi72A5I8j53Q7vgoi38o2HIGMLrxXj1ToVsnECDYs38LjdPXt_zTnQqLjG1-tH7_cyyt6qLBBDUFcY4UDkalCbIu6og3swMDjICU6e50YtWjWNiHngrp2z5Xq5cRil_f1DGsvmIqKEiVOMiAxBxHKhBW893sa7iaVYlnhCi50MTaF5aSY" data-avatar-url="https://lh3.googleusercontent.com/aida-public/AB6AXuCN-P4sGaOSp7JA6UPDrQ1PIWkQ-RZBRVYnPKkXs0F6HYP3PxsFwexyc2UAa4pUee0BeIKrHvewUMDp1xvaLckGOIG63MBi72A5I8j53Q7vgoi38o2HIGMLrxXj1ToVsnECDYs38LjdPXt_zTnQqLjG1-tH7_cyyt6qLBBDUFcY4UDkalCbIu6og3swMDjICU6e50YtWjWNiHngrp2z5Xq5cRil_f1DGsvmIqKEiVOMiAxBxHKhBW893sa7iaVYlnhCi50MTaF5aSY"/>
+</div>
+</div>
+<div class="group cursor-pointer">
+<div class="aspect-square overflow-hidden rounded-full bg-gray-200 transition-all group-hover:scale-105 group-hover:shadow-lg">
+<img alt="Avatar 5" class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9_ceL68jbbo3CuXOfXf4UvNiT-Fykk8-jdD7Kzd7mzZut5uZkIXq6Sc3nVNGyhUA8HaR47kvhXLhLRIsKzonTGxR5j2TzMnSSFhNzpJR8r_zxDWoI5KonOMpSRONqYx9giVpew3ve6oNs13jcuVLiAt9QnahQkL7a-B3p8rHq72ZMJvL0zeaGoO_7dZr0CRLhGH3kYoRblVinjvPT_iyRSL7X3Rc6vh4obNXjJCJy7w3nSn5GTHJkUwqphz-8dXufH26_QewghRw" data-avatar-url="https://lh3.googleusercontent.com/aida-public/AB6AXuB9_ceL68jbbo3CuXOfXf4UvNiT-Fykk8-jdD7Kzd7mzZut5uZkIXq6Sc3nVNGyhUA8HaR47kvhXLhLRIsKzonTGxR5j2TzMnSSFhNzpJR8r_zxDWoI5KonOMpSRONqYx9giVpew3ve6oNs13jcuVLiAt9QnahQkL7a-B3p8rHq72ZMJvL0zeaGoO_7dZr0CRLhGH3kYoRblVinjvPT_iyRSL7X3Rc6vh4obNXjJCJy7w3nSn5GTHJkUwqphz-8dXufH26_QewghRw"/>
+</div>
+</div>
+<div class="group cursor-pointer">
+<div class="aspect-square overflow-hidden rounded-full bg-gray-200 transition-all group-hover:scale-105 group-hover:shadow-lg">
+<img alt="Avatar 6" class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHFtN9q6NKaYvTsB3xS8rmt48EsuB_L9mddDUBBBt8OnD6F2rfO1EeGjAh2LHTjwzEdL4mUVAMouB8XkG8wJcBLO-StxvndO32Ul6BM8AGyTzWN8YANeU7DYioEtIfL58DBVPABYvvTw8oEFZLa2Zn-1jbzB4KKpquwl5WzYj4J2zYX9V0KaQAXm3H4jduFR117PSg9LchPF9VwTo3SFx796cRS4bNABNtmHuxv2E_97bsg7wEygcrzsAzLg_CgCE5wEQvXtMxZkM" data-avatar-url="https://lh3.googleusercontent.com/aida-public/AB6AXuAHFtN9q6NKaYvTsB3xS8rmt48EsuB_L9mddDUBBBt8OnD6F2rfO1EeGjAh2LHTjwzEdL4mUVAMouB8XkG8wJcBLO-StxvndO32Ul6BM8AGyTzWN8YANeU7DYioEtIfL58DBVPABYvvTw8oEFZLa2Zn-1jbzB4KKpquwl5WzYj4J2zYX9V0KaQAXm3H4jduFR117PSg9LchPF9VwTo3SFx796cRS4bNABNtmHuxv2E_97bsg7wEygcrzsAzLg_CgCE5wEQvXtMxZkM"/>
+</div>
+</div>
+</div>
+<div class="mt-10 flex justify-center">
+<button class="flex h-12 min-w-[160px] cursor-pointer items-center justify-center rounded-full bg-[#38e07b] px-6 text-lg font-bold text-[#0e1a13] shadow-lg transition-all hover:bg-[#2fe075] hover:scale-105" id="confirmAvatarBtn">
+ Confirm Avatar
+</button>
+</div>
+</div>
+</main>
+</div>
+<script>
+// Existing script to handle visual selection
+const avatars = document.querySelectorAll(".group");
+let selectedAvatarUrl = null;
+
+avatars.forEach((avatar) => {
+ avatar.addEventListener("click", () => {
+ avatars.forEach((a) => a.firstElementChild.classList.remove("avatar-selected"));
+ avatar.firstElementChild.classList.add("avatar-selected");
+   // Store the URL of the selected avatar
+   selectedAvatarUrl = avatar.querySelector('img').dataset.avatarUrl;
+ });
+ });
+
+      // Add a listener to the "Confirm Avatar" button
+      document.getElementById('confirmAvatarBtn').addEventListener('click', async () => {
+          if (!selectedAvatarUrl) {
+              alert('Please select an avatar first.');
+              return;
+          }
+
+          try {
+              const response = await fetch('http://127.0.0.1:5000/api/avatar', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ avatar_url: selectedAvatarUrl })
+              });
+              
+              const result = await response.json();
+
+              if (response.ok) {
+                  alert(result.message);
+                  window.location.href = 'main_menu.html'; // Navigate to the next page
+              } else {  
+                  alert('Failed to save avatar: ' + result.error);
+              }
+          } catch (error) {
+              console.error('Fetch error:', error);
+              alert('An error occurred. Please try again.');
+          }
+      });
+ </script>
+</body>
+</html>

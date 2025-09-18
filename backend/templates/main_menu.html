@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&family=Space+Grotesk%3Awght%40400%3B500%3B700" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<title>EcoLearn - Home</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+   :root {
+    --primary-50: #f0fdf4;
+    --primary-100: #dcfce7;
+    --primary-200: #bbf7d0;
+    --primary-300: #86efac;
+    --primary-400: #4ade80;
+    --primary-500: #22c55e;
+    --primary-600: #16a34a;
+    --primary-700: #15803d;
+    --primary-800: #166534;
+    --primary-900: #14532d;
+    --primary-950: #052e16;
+    --secondary-50: #fafaf9;
+    --secondary-100: #f5f5f4;
+    --secondary-200: #e7e5e4;
+    --secondary-300: #d6d3d1;
+    --secondary-400: #a8a29e;
+    --secondary-500: #78716c;
+    --secondary-600: #57534e;
+    --secondary-700: #44403c;
+    --secondary-800: #292524;
+    --secondary-900: #1c1917;
+    --secondary-950: #0c0a09;
+   }
+  </style>
+</head>
+<body class="bg-primary-50" style='font-family: "Space Grotesk", "Noto Sans", sans-serif;'>
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<header class="sticky top-0 z-10 flex w-full items-center justify-between whitespace-nowrap border-b border-primary-200 bg-primary-50/80 px-4 py-3 backdrop-blur-sm sm:px-6 lg:px-8">
+<div class="flex items-center gap-3">
+<svg class="h-8 w-8 text-primary-600" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M14.49,43.21,4,36.8V11.2L24,4l20,7.2V36.8L28.89,43.68" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+<path d="M24,22,4,15.6l20-7.2,20,7.2L24,22Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+<path d="M24 22V44" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+</svg>
+<h1 class="text-xl font-bold tracking-tight text-primary-900">EcoLearn</h1>
+</div>
+<nav class="hidden items-center gap-6 text-sm font-medium text-secondary-700 md:flex">
+<a class="transition-colors hover:text-primary-600" href="#">Home</a>
+<a class="transition-colors hover:text-primary-600" href="#">About</a>
+<a class="transition-colors hover:text-primary-600" href="#">Contact</a>
+</nav>
+<div class="flex items-center gap-4">
+<div id="logged-out-header" class="flex gap-3">
+    <button id="signupBtnHeader" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-11 px-6 bg-primary-500 text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary-600 transition-colors">
+        <span class="truncate">Sign Up</span>
+    </button>
+    <button id="loginBtnHeader" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-11 px-6 bg-gray-100 text-gray-900 text-base font-bold leading-normal tracking-[0.015em] hover:bg-gray-200 transition-colors">
+        <span class="truncate">Log In</span>
+    </button>
+</div>
+<div id="logged-in-header" class="hidden gap-3 items-center">
+<button class="relative rounded-full p-2 text-secondary-600 transition-colors hover:bg-primary-100 hover:text-primary-700">
+<span class="material-symbols-outlined"> notifications </span>
+<span class="absolute top-1.5 right-1.5 flex h-2.5 w-2.5 items-center justify-center">
+<span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75"></span>
+<span class="relative inline-flex h-2 w-2 rounded-full bg-red-500"></span>
+</span>
+</button>
+<div class="h-10 w-10 rounded-full bg-cover bg-center" style='background-image: url("{{ user.avatar_url if user and user.avatar_url else "https://lh3.googleusercontent.com/aida-public/AB6AXuCWcwseqDvaERmg4bRHVOSBNgZOQuV0vTKuvZXpc1ANTGlx2dSX2Lf7dWhJELD1Xo64LkhMhGk6ngdhwFeDm1jPMMggsOn6MTo_h7clrTDWTmOVdjUzHhNqJXUj9MniBOj35czVs2N5SeO1vYTV0yB5VkR9R5sXSeVrJETSEAiBzbliIFUX-vFSMawQoA6ENZJ6wRXFDWOWbtnhlW1E3QPC7yKQ6KWGPia6AFHgDZdZQ4gJtJcl_a939tfI3D8_JHCw69M8gu94VDs" }}");'></div>
+<a id="logoutBtn" href="{{ url_for('logout') }}" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-11 px-6 bg-gray-100 text-gray-900 text-base font-bold leading-normal tracking-[0.015em] hover:bg-gray-200 transition-colors">
+  <span class="truncate">Log Out</span>
+</a>
+</div>
+</div>
+</header>
+<main class="flex-1">
+<section class="bg-primary-100/50 py-16 px-4 sm:px-6 lg:px-8">
+<div class="mx-auto max-w-4xl text-center">
+<h2 class="text-4xl font-bold tracking-tighter text-primary-900 sm:text-5xl">Welcome Back, Eco-Warrior!</h2>
+<p class="mt-4 text-lg text-primary-700">Choose your path and continue your journey to save the planet.</p>
+</div>
+</section>
+<section class="py-12 sm:py-16 lg:py-20">
+<div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+<div class="group flex transform flex-col overflow-hidden rounded-lg bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+<div class="h-48 w-full overflow-hidden">
+<div class="h-full w-full bg-cover bg-center transition-transform duration-300 group-hover:scale-110" style='background-image: url("{{ url_for('static', filename='images/student-dashboard.jpg') }}")'></div>
+</div>
+<div class="flex flex-1 flex-col justify-between p-6">
+<div>
+<h3 class="text-xl font-bold text-primary-900">Student Dashboard</h3>
+<p class="mt-2 text-secondary-600">Access your learning modules, track progress, and engage in challenges.</p>
+</div>
+<a id="studentDashboardBtn" class="mt-6 flex items-center justify-center rounded-md bg-primary-500 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-primary-600" href="#">
+                    Go to Dashboard
+                    <span class="material-symbols-outlined ml-2">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="group flex transform flex-col overflow-hidden rounded-lg bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+<div class="h-48 w-full overflow-hidden">
+<div class="h-full w-full bg-cover bg-center transition-transform duration-300 group-hover:scale-110" style='background-image: url("{{ url_for('static', filename='images/teacher-dashboard.jpg') }}");'></div>
+</div>
+<div class="flex flex-1 flex-col justify-between p-6">
+<div>
+<h3 class="text-xl font-bold text-primary-900">Teacher Dashboard</h3>
+<p class="mt-2 text-secondary-600">Manage courses, monitor student performance, and create new learning content.</p>
+</div>
+<a id="teacherDashboardBtn" class="mt-6 flex items-center justify-center rounded-md bg-primary-500 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-primary-600" href="#">
+        Go to Dashboard
+        <span class="material-symbols-outlined ml-2">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="group flex transform flex-col overflow-hidden rounded-lg bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+<div class="h-48 w-full overflow-hidden">
+<div class="h-full w-full bg-cover bg-center transition-transform duration-300 group-hover:scale-110" style='background-image: url("{{ url_for('static', filename='images/admin-panel.jpg') }}");'></div>
+</div>
+<div class="flex flex-1 flex-col justify-between p-6">
+<div>
+<h3 class="text-xl font-bold text-primary-900">Admin Panel</h3>
+<p class="mt-2 text-secondary-600">Manage users, courses, and platform settings.</p>
+</div>
+<a id="adminPanelBtn" class="mt-6 flex items-center justify-center rounded-md bg-primary-500 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-primary-600" href="#">
+          Go to Panel
+          <span class="material-symbols-outlined ml-2">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<div class="mt-16 border-t border-primary-200 pt-12">
+<h2 class="text-center text-3xl font-bold tracking-tight text-primary-900">Explore More</h2>
+<div class="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2">
+<div class="group relative overflow-hidden rounded-lg bg-white shadow-lg">
+<div class="h-64 w-full bg-cover bg-center" style='background-image: url("{{ url_for('static', filename='images/challenges.jpg') }}")'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6">
+<h3 class="text-2xl font-bold text-white">Environmental Challenges</h3>
+<p class="mt-2 text-primary-100">Participate in challenges, earn rewards, and make a real-world impact.</p>
+<a class="mt-4 inline-block font-semibold text-primary-300 transition-colors hover:text-white" href="#">View Challenges →</a>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-lg bg-white shadow-lg">
+<div class="h-64 w-full bg-cover bg-center" style='background-image: url("{{ url_for('static', filename='images/resources.jpg') }}")'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6">
+<h3 class="text-2xl font-bold text-white">Learning Resources</h3>
+<p class="mt-2 text-primary-100">Access a library of educational materials on various environmental topics.</p>
+<a class="mt-4 inline-block font-semibold text-primary-300 transition-colors hover:text-white" href="#">Browse Resources →</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-primary-900 text-primary-200">
+<div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+<div class="flex flex-col items-center justify-between md:flex-row">
+<div class="flex items-center gap-3">
+<svg class="h-7 w-7 text-primary-400" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M14.49,43.21,4,36.8V11.2L24,4l20,7.2V36.8L28.89,43.68" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+<path d="M24,22,4,15.6l20-7.2,20,7.2L24,22Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+<path d="M24 22V44" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+</svg>
+<span class="text-lg font-semibold">EcoLearn</span>
+</div>
+<p class="mt-4 text-sm text-primary-300 md:mt-0">© 2024 EcoLearn. All rights reserved.</p>
+</div>
+</div>
+</footer>
+</div>
+<script>
+    const user = {{ user | tojson | default({}) | safe }};
+
+    const headerLoggedIn = document.getElementById('logged-in-header');
+    const headerLoggedOut = document.getElementById('logged-out-header');
+    
+    const studentDashboardBtn = document.getElementById('studentDashboardBtn');
+    const teacherDashboardBtn = document.getElementById('teacherDashboardBtn');
+    const adminPanelBtn = document.getElementById('adminPanelBtn');
+
+    if (user && user.username) {
+        headerLoggedIn.classList.remove('hidden');
+        headerLoggedOut.classList.add('hidden');
+    } else {
+        headerLoggedIn.classList.add('hidden');
+        headerLoggedOut.classList.remove('hidden');
+    }
+
+    if (studentDashboardBtn) {
+        studentDashboardBtn.addEventListener('click', () => {
+            window.location.href = '{{ url_for('dashboard') }}';
+        });
+    }
+    
+    if (teacherDashboardBtn) {
+        teacherDashboardBtn.addEventListener('click', () => {
+            // For now, redirect to the same dashboard as a student
+            // In a real app, this would redirect to a different dashboard
+            window.location.href = '{{ url_for('dashboard') }}';
+        });
+    }
+
+    if (adminPanelBtn) {
+        adminPanelBtn.addEventListener('click', () => {
+            // In a real app, this would redirect to an admin dashboard
+            window.location.href = '{{ url_for('dashboard') }}';
+        });
+    }
+
+</script>
+</body></html>

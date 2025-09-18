@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Time & Background</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: background-image 0.5s ease-in-out;
+            color: white;
+            position: relative; /* Make the body position relative for absolute positioning of the image */
+        }
+
+        .dynamic-text, #random-message {
+            transition: color 0.3s;
+            z-index: 1; /* Ensure text is above the random image */
+            position: relative; /* Keep text above the image */
+        }
+
+        #time, #date {
+            font-size: 2.5rem; /* Increase font size for date and time */
+            margin: 0; /* Remove margin for better alignment */
+        }
+
+        .dark-mode-container {
+            position: absolute; /* Position it at the top */
+            top: 20px; /* Adjust vertical position */
+            text-align: center;
+            z-index: 1; /* Ensure it is on top */
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 25px;
+            margin-left: 10px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 25px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 5px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(24px);
+        }
+
+        #margin-container {
+            text-align:center;
+            position: relative;
+            display: flex; /* Use flexbox for centering */
+            flex-direction: column; /* Stack elements vertically */
+            justify-content: center; /* Center elements vertically */
+            align-items: center; /* Center elements horizontally */
+            border: none; /* Remove border */
+            width: 100%; /* Full width */
+            max-width: 900px; /* Maximum width */
+            height: 700px; /* Fixed height for the container */
+            text-shadow:black;
+        }
+
+        #random-image {
+            position: absolute; /* Position it absolutely to the viewport */
+            width: auto; /* Keep the width automatic */
+            height: auto; /* Keep the height automatic */
+            max-width: 300px; /* Set a maximum width for the image */
+            max-height: 300px; /* Set a maximum height for the image */
+            transition: transform 0.3s; /* Transition for rotation */
+            z-index: -1; /* Keep image behind text */
+        }
+
+
+    </style>
+</head>
+<body id="bg">
+    <div class="dark-mode-container">
+        <label id="mode-label">Dark Mode OFF</label>
+        <label class="switch">
+            <input type="checkbox" id="toggle-button">
+            <span class="slider"></span>
+        </label>
+    </div>
+    <div id="margin-container">
+        <div id="date" class="dynamic-text"></div>
+        <div id="time" class="dynamic-text"></div>
+        <div id="random-message" class="dynamic-text"></div>
+        <img id="random-image" src="" alt="Random Image" />
+    </div>
+    <script>
+        const angles = [20, 30, 10, 50, 60, 0, -10, -20, -30, -50, -60];
+        let isWhiteText = true;
+
+        const messages = [
+            "Did you know this is created by a 16-year-old boy with ChatGPT?",
+            "This background changes according to time!",
+            "Refreshing the website will give a different popup image!",
+            "Is this website useful?",
+            "What's the time, bro?",
+            "One Piece is real"
+        ];
+
+        const images = [
+"static/popup_images/image_2024-06-05_163450069.png",
+"static/popup_images/image_2024-06-05_163530254.png",
+"static/popup_images/image_2024-06-05_163806422.png",
+"static/popup_images/image_2024-06-06_155251015.png",
+"static/popup_images/image_2024-06-06_155440849.png",
+"static/popup_images/image_2024-06-06_155558738.png",
+"static/popup_images/image_2024-06-06_155726876.png",
+"static/popup_images/image_2024-06-06_155850163.png",
+"static/popup_images/image_2024-06-06_160015779.png",
+"static/popup_images/image.png",
+"static/popup_images/meme0.png",
+"static/popup_images/meme1.png",
+"static/popup_images/image copy.png",
+"static/popup_images/image1.png",
+"static/popup_images/pngaaa.com-170036.png",
+"static/popup_images/pngaaa.com-611347.png",
+"static/popup_images/pngaaa.com-611387.png",
+"static/popup_images/pngaaa.com-611375.png",
+"static/popup_images/pngaaa.com-1233502.png",
+"static/popup_images/pngaaa.com-1233548.png",
+"static/popup_images/pngaaa.com-1233599.png",
+"static/popup_images/pngaaa.com-1233652.png",
+"static/popup_images/pngaaa.com-4309194.png",
+"static/popup_images/pngaaa.com-4309208.png"
+            // Add additional image paths as needed
+        ];
+
+        function setRandomMessageAndImage() {
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            document.getElementById('random-message').innerText = randomMessage;
+
+            const randomImage = images[Math.floor(Math.random() * images.length)];
+            const randomImageElement = document.getElementById('random-image');
+            randomImageElement.src = randomImage;
+
+            // Position the random image randomly within the viewport
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+
+            const randomX = Math.random() * (windowWidth - 200); // Adjust width for positioning
+            const randomY = Math.random() * (windowHeight - 200); // Adjust height for positioning
+            const randomAngle = angles[Math.floor(Math.random() * angles.length)];
+
+            randomImageElement.style.left = `${randomX}px`;
+            randomImageElement.style.top = `${randomY}px`;
+            randomImageElement.style.transform = `translate(-50%, -50%) rotate(${randomAngle}deg)`; // Center image and rotate
+        }
+
+        function updateTime() {
+            const now = new Date();
+            const dayOfWeek = now.toLocaleDateString('en', { weekday: 'long' });
+            const dateString = `${dayOfWeek}, ${now.getMonth() + 1}/${now.getDate()}/${now.getFullYear()}`;
+            const timeString = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
+            
+            document.getElementById('date').innerText = dateString;
+            document.getElementById('time').innerText = timeString;
+
+            // Set background image based on the current time
+            let imageUrl;
+            if (now.getHours() >= 6 && now.getHours() < 12) {
+                imageUrl = 'static/morning.jpg';
+            } else if (now.getHours() >= 12 && now.getHours() < 16) {
+                imageUrl = 'static/afternoon.jpg';
+            } else if (now.getHours() >= 16 && now.getHours() < 20) {
+                imageUrl = 'static/evening.jpg';
+            } else {
+                imageUrl = 'static/night.jpg';
+            }
+            document.body.style.backgroundImage = `url(${imageUrl})`;
+        }
+
+        function toggleTextColor() {
+            const textElements = document.querySelectorAll('.dynamic-text, #random-message');
+            isWhiteText = !isWhiteText;
+            const newColor = isWhiteText ? 'white' : 'black';
+            textElements.forEach(element => {
+                element.style.color = newColor;
+            });
+            document.getElementById('mode-label').innerText = isWhiteText ? 'Dark Mode OFF' : 'Dark Mode ON';
+            document.getElementById('mode-label').style.color = newColor;
+        }
+
+        // Initialize time and random message/image on page load
+        updateTime();
+        setRandomMessageAndImage();
+
+        setInterval(updateTime, 1000);
+        setInterval(setRandomMessageAndImage, 100000);
+
+        // Event listener for toggling text color
+        document.getElementById('toggle-button').addEventListener('change', toggleTextColor);
+    </script>
+</body>
+</html>

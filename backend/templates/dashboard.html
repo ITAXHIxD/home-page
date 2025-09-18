@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+    <link as="style" href="https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&family=Space+Grotesk%3Awght%40400%3B500%3B700" onload="this.rel='stylesheet'" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <title>Stitch Design</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+        :root {
+            --primary-color: #11d411;
+            --primary-color-text: #052e05;
+            --primary-bg-subtle: #e7f3e7;
+            --text-color: #0d1b0d;
+            --text-color-light: #4c9a4c;
+            --surface-color: #f8fcf8;
+            --border-color: #cfe7cf;
+        }
+    </style>
+</head>
+<body class="bg-[var(--surface-color)] font-['Space_Grotesk',_'Noto_Sans',_sans-serif] text-[var(--text-color)]">
+    <div class="relative flex min-h-screen w-full flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[var(--border-color)] px-10 py-4">
+            <div class="flex items-center gap-4 text-[var(--text-color)]">
+                <svg class="h-8 w-8 text-[var(--primary-color)]" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd" d="M24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4ZM18 34V14L34 24L18 34Z" fill="currentColor" fill-rule="evenodd"></path>
+                </svg>
+                <h2 class="text-xl font-bold tracking-tight">EcoLearn</h2>
+            </div>
+            <nav class="hidden items-center gap-8 md:flex">
+                <a class="text-sm font-medium hover:text-[var(--primary-color)]" href="#">Dashboard</a>
+                <a class="text-sm font-medium hover:text-[var(--primary-color)]" href="#">Challenges</a>
+                <a class="text-sm font-medium hover:text-[var(--primary-color)]" href="#">Resources</a>
+                <a class="text-sm font-medium hover:text-[var(--primary-color)]" href="#">Community</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <button class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-[var(--primary-bg-subtle)] text-[var(--text-color)] transition-colors hover:bg-green-200">
+                    <span class="material-symbols-outlined"> notifications </span>
+                </button>
+                <div class="h-10 w-10 rounded-full bg-cover bg-center bg-no-repeat" style='background-image: url("{{ user.avatar_url }}");'></div>
+            </div>
+        </header>
+        <main class="flex-1 px-4 py-8 sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-7xl">
+                <div class="mb-8">
+                    <h1 class="text-4xl font-bold tracking-tight">Welcome back, {{ user.username }}!</h1>
+                    <p class="mt-2 text-lg text-[var(--text-color-light)]">Your journey to a greener future continues.</p>
+                </div>
+                <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    <div class="flex flex-col gap-2 rounded-xl border border-[var(--border-color)] bg-white p-6 shadow-sm">
+                        <p class="text-sm font-medium text-[var(--text-color-light)]">XP</p>
+                        <p class="text-4xl font-bold">0</p>
+                    </div>
+                    <div class="flex flex-col gap-2 rounded-xl border border-[var(--border-color)] bg-white p-6 shadow-sm">
+                        <p class="text-sm font-medium text-[var(--text-color-light)]">Current Level</p>
+                        <p class="text-4xl font-bold">Level 1</p>
+                    </div>
+                    <div class="flex flex-col gap-2 rounded-xl border border-[var(--border-color)] bg-white p-6 shadow-sm">
+                        <p class="text-sm font-medium text-[var(--text-color-light)]">Badges Earned</p>
+                        <p class="text-4xl font-bold">0</p>
+                    </div>
+                </div>
+                <section class="mt-12">
+                    <h2 class="mb-4 text-2xl font-bold tracking-tight">Today's Eco-Challenge</h2>
+                    <div class="group overflow-hidden rounded-xl bg-white shadow-lg transition-all duration-300 hover:shadow-2xl">
+                        <div class="grid grid-cols-1 md:grid-cols-2">
+                            <div class="h-64 bg-cover bg-center bg-no-repeat md:h-auto" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAEUCiOaY9V9nVnupY5f3UzJxTWfKuC6BNEsl1ygKfFO3QGC8Mn7UVpZxiwcKwTRNH373Hzveh8LRjCnCjIFJnkZNNA83eQejeecmWi7oFgoliZDscF1LVMuAJZLGPvLH36-hSrVbtO1YNmjDCecYVROuJYAPpaeCazPQV48y0GgRuXznmR7bv6V2KbCk3QoUfRpSjPym5pHRZKXPLioeV9mHax4UZ3owmpZCZjsuSJaAtbM-kEzObnLc7L-iOSa6VKbWq689Ppptg");'></div>
+                            <div class="flex flex-col justify-center p-8">
+                                <p class="text-sm font-medium text-[var(--primary-color)]">Daily Task</p>
+                                <h3 class="mt-2 text-2xl font-bold">Reduce Your Carbon Footprint</h3>
+                                <p class="mt-3 text-base text-[var(--text-color-light)]">Take a short quiz on sustainable living and earn 50 XP!</p>
+                                <button class="mt-6 flex w-fit items-center justify-center rounded-full bg-[var(--primary-color)] px-6 py-3 text-base font-bold text-[var(--primary-color-text)] transition-transform duration-300 group-hover:scale-105">
+                                    Start Quiz <span class="material-symbols-outlined ml-2"> arrow_forward </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div class="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-3">
+                    <section class="lg:col-span-2">
+                        <h2 class="mb-4 text-2xl font-bold tracking-tight">Leaderboard</h2>
+                        <div class="overflow-hidden rounded-xl border border-[var(--border-color)] bg-white shadow-sm">
+                            <table class="w-full">
+                                <thead class="bg-[var(--primary-bg-subtle)]">
+                                    <tr>
+                                        <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-[var(--text-color-light)]">Rank</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-[var(--text-color-light)]">Student</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-[var(--text-color-light)]">XP</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-[var(--border-color)]">
+                                    <tr class="transition-colors hover:bg-gray-50">
+                                        <td class="px-6 py-4 text-lg font-bold">1</td>
+                                        <td class="px-6 py-4 font-medium">Ethan</td>
+                                        <td class="px-6 py-4 font-medium text-[var(--text-color-light)]">2300</td>
+                                    </tr>
+                                    <tr class="transition-colors hover:bg-gray-50">
+                                        <td class="px-6 py-4 text-lg font-bold">2</td>
+                                        <td class="px-6 py-4 font-medium">Olivia</td>
+                                        <td class="px-6 py-4 font-medium text-[var(--text-color-light)]">2150</td>
+                                    </tr>
+                                    <tr class="bg-[var(--primary-bg-subtle)] font-bold text-[var(--primary-color-text)] transition-colors hover:bg-green-100">
+                                        <td class="px-6 py-4 text-lg">3</td>
+                                        <td class="px-6 py-4">{{ user.username }} (You)</td>
+                                        <td class="px-6 py-4 text-[var(--primary-color)]">0</td>
+                                    </tr>
+                                    <tr class="transition-colors hover:bg-gray-50">
+                                        <td class="px-6 py-4 text-lg font-bold">4</td>
+                                        <td class="px-6 py-4 font-medium">Noah</td>
+                                        <td class="px-6 py-4 font-medium text-[var(--text-color-light)]">1400</td>
+                                    </tr>
+                                    <tr class="transition-colors hover:bg-gray-50">
+                                        <td class="px-6 py-4 text-lg font-bold">5</td>
+                                        <td class="px-6 py-4 font-medium">Ava</td>
+                                        <td class="px-6 py-4 font-medium text-[var(--text-color-light)]">1250</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                    <aside>
+                        <h2 class="mb-4 text-2xl font-bold tracking-tight">New Challenges</h2>
+                        <div class="space-y-4">
+                            {% for interest in user.preferences %}
+                            <div class="group flex items-center gap-4 rounded-xl border border-[var(--border-color)] bg-white p-4 shadow-sm transition-all duration-300 hover:border-[var(--primary-color)] hover:shadow-md">
+                                <div class="h-16 w-16 flex-shrink-0 rounded-lg bg-cover bg-center bg-no-repeat" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCYFiNouKRJkctTpdI61jidB9kjVu1TUkgstZM4KJO-sr4de7GJzcksVYhRacw2Fup6xi3tdnWm_QigpJL-EGmdURbui4gvuG8YDEo69NIIQzQWljTwoIUh8065Y3L4IcpYrVHSYa8RzdICCZTi6dHIGSkUK51Usaw4eF6Wz8IYocX2lwr38xQiaiuP0f7X5Ujdlz4QZpck63P1nynrWEeRr0PWadLHCkzsDlreArHaHLKAN42WIfYKI40bCH0-MBrMkhuGR_z8kGk");'></div>
+                                <div>
+                                    <h3 class="font-bold">{{ interest | replace('_', ' ') | title }}</h3>
+                                    <p class="text-sm text-[var(--text-color-light)]">Explore challenges in this area.</p>
+                                </div>
+                                <span class="material-symbols-outlined ml-auto text-gray-400 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-[var(--primary-color)]">
+                                    chevron_right
+                                </span>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="mt-6 flex justify-center">
+                            <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-6 bg-[var(--primary-bg-subtle)] text-sm font-bold tracking-wide text-[var(--text-color)] transition-colors hover:bg-green-200">
+                                <span class="truncate">View All Challenges</span>
+                            </button>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

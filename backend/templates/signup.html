@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Space+Grotesk%3Awght%40400%3B500%3B700" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<meta charset="utf-8"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+  :root {
+   --primary-color: #38e07b;
+  }
+  </style>
+</head>
+<body class="bg-[#f8fbfa] font-['Space_Grotesk',_'Noto_Sans',_sans-serif]">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<div class="flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e8f2ec] px-10 py-4">
+<div class="flex items-center gap-3 text-[#0e1a13]">
+<svg class="h-8 w-8 text-[var(--primary-color)]" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM16.6 15.2C16.6 15.2 16.2 16.4 15.2 16.6C14.2 16.8 12.8 16.2 12.8 16.2L11.4 14.8L12.8 13.4L14.2 14.8C14.2 14.8 15.2 15.2 15.2 14.2C15.2 13.2 14.2 12.8 14.2 12.8L12.8 11.4L14.2 9.99999L15.6 11.4C15.6 11.4 16.6 11.8 16.6 10.8C16.6 9.79999 15.6 9.39999 15.6 9.39999L12.8 7.39999L7.4 12.8L12.8 18.2C12.8 18.2 15.6 17.2 16.6 15.2Z" fill="currentColor"></path>
+</svg>
+<h1 class="text-2xl font-bold tracking-tighter">EcoLearn</h1>
+</div>
+<nav class="flex items-center gap-6">
+<a class="text-base font-medium text-[#0e1a13] hover:text-[var(--primary-color)] transition-colors" href="#">Home</a>
+<a class="text-base font-medium text-[#0e1a13] hover:text-[var(--primary-color)] transition-colors" href="#">About</a>
+<a class="text-base font-medium text-[#0e1a13] hover:text-[var(--primary-color)] transition-colors" href="#">Contact</a>
+<a class="inline-flex h-10 items-center justify-center rounded-full bg-[#e8f2ec] px-6 text-sm font-bold text-[#0e1a13] transition-colors hover:bg-gray-200" href="#">Log In</a>
+</nav>
+</header>
+<main class="flex flex-1 items-center justify-center py-16">
+<div class="w-full max-w-md space-y-8 px-4">
+<div class="text-center">
+<h2 class="text-4xl font-bold tracking-tight text-[#0e1a13]">Get Started with EcoLearn</h2>
+<p class="mt-2 text-lg text-[#51946c]">Create an account to begin your environmental adventure.</p>
+</div>
+<form id="signupForm" class="space-y-6">
+<div>
+<label class="sr-only" for="full-name">Full Name</label>
+<input class="form-input block w-full rounded-full border-transparent bg-[#e8f2ec] h-14 px-5 text-base placeholder:text-[#51946c] focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)]" id="full-name" placeholder="Full Name" type="text"/>
+</div>
+<div>
+<label class="sr-only" for="email">Email</label>
+<input class="form-input block w-full rounded-full border-transparent bg-[#e8f2ec] h-14 px-5 text-base placeholder:text-[#51946c] focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)]" id="email" placeholder="Email" type="email"/>
+</div>
+<div>
+<label class="sr-only" for="password">Password</label>
+<input class="form-input block w-full rounded-full border-transparent bg-[#e8f2ec] h-14 px-5 text-base placeholder:text-[#51946c] focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)]" id="password" placeholder="Password" type="password"/>
+</div>
+<div>
+<label class="sr-only" for="school">School/College</label>
+<input class="form-input block w-full rounded-full border-transparent bg-[#e8f2ec] h-14 px-5 text-base placeholder:text-[#51946c] focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)]" id="school" placeholder="School/College" type="text"/>
+</div>
+<div>
+<button class="flex w-full cursor-pointer items-center justify-center rounded-full h-14 px-6 bg-[var(--primary-color)] text-lg font-bold text-[#0e1a13] transition-transform hover:scale-105" type="submit">
+ Sign Up
+</button>
+</div>
+</form>
+<p class="text-center text-base text-[#51946c]">
+    Already have an account?
+    <a class="font-medium text-[var(--primary-color)] hover:underline" href="http://127.0.0.1:5000/login.html">Log in</a>
+</p>
+</p>
+</div>
+</main>
+</div>
+</div>
+<script>
+document.getElementById('signupForm').addEventListener('submit', async (e) => {
+ e.preventDefault(); 
+ 
+ const username = document.getElementById('full-name').value;
+ const email = document.getElementById('email').value;
+ const password = document.getElementById('password').value;
+ 
+ try {
+  const response = await fetch('http://127.0.0.1:5000/api/signup', {
+   method: 'POST',
+   headers: { 'Content-Type': 'application/json' },
+   body: JSON.stringify({ username, email, password })
+  });
+ 
+  const result = await response.json();
+ 
+  if (response.ok) {
+    window.location.href = 'avatar.html'; // Assuming this is the next page
+  } else {
+    alert('Signup failed: ' + result.error);
+  }
+ } catch (error) {
+  console.error('Fetch error:', error);
+  alert('An error occurred. Please try again.');
+ }
+});
+</script>
+</body>
+</html>
